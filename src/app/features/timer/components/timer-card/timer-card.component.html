@@ -1,0 +1,84 @@
+<div class="bg-white dark:bg-slate-900/70 backdrop-blur-xl border border-slate-800 rounded-3xl p-10 shadow-2xl w-full max-w-lg">
+
+  <h2 class="text-3xl font-bold text-center mb-10">
+    Deep Focus
+  </h2>
+
+  <!-- Circle Timer -->
+  <div class="relative flex justify-center items-center mb-10">
+
+    <svg width="300" height="300">
+      <!-- Background -->
+      <circle
+        cx="150"
+        cy="150"
+        [attr.r]="radius"
+        stroke="#1e293b"
+        stroke-width="14"
+        fill="transparent"
+      />
+      <!-- Progress -->
+      <circle
+        cx="150"
+        cy="150"
+        [attr.r]="radius"
+        stroke="#22c55e"
+        stroke-width="14"
+        fill="transparent"
+        stroke-linecap="round"
+        [attr.stroke-dasharray]="circumference"
+        [attr.stroke-dashoffset]="dashOffset()"
+        class="-rotate-90 origin-center"
+      />
+
+    </svg>
+
+    <!-- Timer Text -->
+    <div class="absolute text-center">
+      <div class="text-6xl font-bold">
+        {{ formattedTime() }}
+      </div>
+      <div class="dark:text-slate-400 mt-2">
+        Stay Focused
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="flex justify-center gap-4 mb-8">
+    <button
+      (click)="timerService.startTimer()"
+      class="bg-green-500 px-6 py-3 rounded-xl font-semibold">
+      Start
+    </button>
+    <button
+      (click)="timerService.pauseTimer()"
+      class="bg-yellow-500 px-6 py-3 rounded-xl font-semibold">
+      Pause
+    </button>
+    <button
+      (click)="timerService.resetTimer()"
+      class="bg-red-500 px-6 py-3 rounded-xl font-semibold">
+      Reset
+    </button>
+  </div>
+
+  <!-- Presets -->
+  <div class="flex justify-center gap-3">
+    <button
+      (click)="timerService.setTimer(25)"
+      class="dark:bg-slate-800 px-4 py-2 rounded-xl   border border-slate-500">
+      25 Focus
+    </button>
+    <button
+      (click)="timerService.setTimer(50)"
+      class="dark:bg-slate-800 px-4 py-2 rounded-xl border border-slate-500">
+      50 Deep Work
+    </button>
+    <button
+      (click)="timerService.setTimer(5)"
+      class="dark:bg-slate-800 px-4 py-2 rounded-xl border border-slate-500">
+      5 Break
+    </button>
+  </div>
+</div>

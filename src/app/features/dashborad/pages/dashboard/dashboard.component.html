@@ -1,0 +1,80 @@
+<h1 class="text-4xl font-bold mb-8">
+  Dashboard
+</h1>
+
+<app-quote-banner></app-quote-banner>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <app-stats-card
+    title="Focus Hours"
+    [value]="(timerService.totalFocusMinutes() / 60).toFixed(1)"
+    subtitle="Total focus time">
+  </app-stats-card>
+  <app-stats-card
+    title="Sessions"
+    [value]="timerService.sessions().length.toString()"
+    subtitle="Completed sessions">
+  </app-stats-card>
+  <app-stats-card
+    title="Productivity"
+    [value]="productivityScore + '%'"
+    subtitle="Daily performance">
+  </app-stats-card>
+</div>
+
+<!-- Streak Widget -->
+<app-strak-widget></app-strak-widget>
+
+<div class="mt-8">
+  <h2 class="text-3xl font-bold mb-5">
+    Recent Sessions
+  </h2>
+  <div class="space-y-4">
+    @for(session of timerService.sessions(); track session.id) {
+      <div
+        class="bg-white dark:bg-slate-900 border border-slate-200 dark:hover:bg-slate-800 rounded-2xl p-5 flex justify-between">
+        <div>
+          <h3 class="text-xl font-semibold">
+            Focus Session
+          </h3>
+          <p class="text-slate-400">
+            {{ formatDuration(session.duration) }}
+          </p>
+        </div>
+        <p class="text-slate-500">
+          {{ session.completedAt | date:'short' }}
+        </p>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- <h1 class="text-4x1 font-bold mb-8">
+  Dashboard
+</h1>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="bg-slate-900 p-6 rounded-3xl">
+    <h2 class="text-x1 mb-2">
+      Today's Focus
+    </h2>
+    <p class="text-4x1 font-bold">
+      4.5 hrs
+    </p>
+  </div>
+  <div class="bg-slate-900 p-6 rounded-3xl">
+    <h2 class="text-x1 mb-2">
+      Sessions
+    </h2>
+    <p class="text-4x1 font-bold">
+      8
+    </p>
+  </div>
+  <div class="bg-slate-900 p-6 rounded-3xl">
+    <h2 class="text-x1 mb-2">
+      Current Streak
+    </h2>
+    <p class="text-4x1 font-bold">
+      12 🔥 
+    </p>
+  </div>
+</div> -->

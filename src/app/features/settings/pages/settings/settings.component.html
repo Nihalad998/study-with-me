@@ -1,0 +1,103 @@
+<h1 class="text-4x1 font-bold mb-8">
+  Settings
+</h1>
+<div class="space-y-6">
+  <!-- Dark Mode -->
+  <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 rounded-3xl p-6 flex justify-between items-center">
+    <div>
+      <h2 class="dark:text-x1 font-semibold">
+        Dark Mode
+      </h2>
+      <p class="dark:text-slate-400">
+        Toggle Dark Appearance
+      </p>
+    </div>
+
+    <input
+      type="checkbox" 
+      [checked]="settings().darkMode"
+      (change)="settingsService.updateSettings({
+        darkMode: !settings().darkMode
+      })"
+      class="w-6 h-6"
+    />
+  </div>
+
+  <!-- Sound -->
+  <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 rounded-3xl p-6 flex justify-between items-center">
+    <div>
+      <h2 class="text-x1 font-semibold">
+        Ambient Sound
+      </h2>
+      <p class="dark:text-slate-400">
+        Enable study sounds
+      </p>
+    </div>
+    <input 
+      type="checkbox"
+      [checked]="settings().soundEnabled"
+      (change)="settingsService.updateSettings({
+        soundEnabled: !settings().soundEnabled
+      })"
+      class="w-6 h-6"
+    />
+  </div>  
+
+  <!-- Volume -->
+  <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 rounded-3xl p-6">
+      <h2 class="text-x1 font-semibold mb-4">
+        Volume
+      </h2>
+      <input 
+      type="range"
+      min="0"
+      max="1"
+      step="0.1"
+      [ngModel]="settings().soundEnabled"
+      (ngModelChange)="settingsService.updateSettings({
+        volume: +$event
+      })"
+      class="w-full"
+    /> 
+  </div>
+
+  <!-- Focus Duration -->
+  <div class="bg-white dark:bg-slate-900 border dark:border-slate-800 rounded-3x1 p-6">
+    <h2 class="text-x1 font-semibold mb-4">
+      Default Focus Duration
+    </h2>
+    <select 
+      [ngModel]="settings().focusDuration"
+      (ngModelChange)="settingsService.updateSettings({
+        focusDuration: +$event
+      })"
+      class="dark:bg-slate-800 border  border-slate-500
+  dark:border-slate-800 rounded-xl px-4 py-3"
+    >
+      <option value="25">
+        25 Minutes
+      </option>
+      <option value="50">
+        50 Minutes
+      </option>
+      <option value="90">
+        90 Minutes
+      </option>
+    </select>
+  </div>
+
+  <!-- Reset -->
+  <div class="bg-white dark:bg-slate-900 border border-red-500 rounded3x1 p-6">
+    <h2 class="text-x1 font-semibold mb-4">
+      Danger Zone
+    </h2>
+    <button
+      (click)="settingsService.resetSettings()"
+      class="bg-red-500 px-6 py-3 rounded-xl font-semibold"
+    >
+    Reset All Data
+    </button>
+  </div>
+
+ 
+</div>

@@ -1,0 +1,20 @@
+<div class="bg-white dark:bg-slate-900 border border-slate-200 dark:hover:bg-slate-800 rounded-3xl p-6 shadow-xl">
+  <div class="flex justify-between items-center">
+    <div>
+      <p class="dark:text-slate-400 mb-3">
+        Current Streak
+      </p>
+      <h2 class="dark:text-5xl font-bold">
+        {{ streakService.currentStreak() }} 🔥
+      </h2>
+    </div>
+    <div>
+      <p class="dark:text-slate-400 mb-3">
+        Best Streak
+      </p>
+      <h3 class="text-3xl font-semibold">
+        {{ streakService.longestStreak() }}
+      </h3>
+    </div>
+  </div>
+</div>

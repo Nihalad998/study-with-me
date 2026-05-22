@@ -1,0 +1,62 @@
+<h1 class="text-4x1 font-bold mb-8">
+  Analytics
+</h1>
+
+<!-- Stats -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <app-stats-card
+    title="Total Focus"
+    [value]="(totalHours() || 0) + 'h' "
+    subtitle="Overall study time">
+  </app-stats-card>
+  
+  <app-stats-card
+    title="Sessions"
+    [value]="timerService.sessions().length + ''"
+    subtitle="Completed sessions">
+  </app-stats-card>
+
+  <app-stats-card
+    title="Average Session"
+    [value]="formatDuration(averageSession())"
+    subtitle="Average duration">
+  </app-stats-card>
+</div>
+
+<!-- Main Chart -->
+<div class="bg-white dark:bg-slate-900 border
+border-slate-200 dark:border-slate-800 rounded-3xl p-8 mb-8">
+  <h2 class="text -2x1 font-bold mb-6">
+    Weekly Focus Trend
+  </h2>
+  <canvas
+    baseChart
+    [data]="lineChartData"
+    [options]="lineChartOptions"
+    chartType="line">
+  </canvas>
+</div>
+
+<!-- Session History -->
+<div class="bg=white dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-r-3xl p-8" >
+  <h2 class="text-2x1 font-bold mb-6">
+    Session History
+  </h2>
+  <div class="space-y-4">
+    @for (session of timerService.sessions(); track session.id) {
+      <div class="bg-white dark:bg-slate-800 rounded-2x1 p-1 flex justify-between items-center">
+        <div>
+          <h3 class="dark:text-x1 font-semibold">
+            Focus Session
+          </h3>
+          <p class="dark:text-slate-400">
+            {{ formatDuration(session.duration) }}
+          </p>
+        </div>
+        <p class="dark:text-slate-400">
+          {{ session.completedAt | date:'short' }}
+        </p>
+      </div>
+    }
+  </div>
+</div>
