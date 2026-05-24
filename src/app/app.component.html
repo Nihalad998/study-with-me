@@ -1,16 +1,9 @@
 <div class="flex min-h-screen
  bg-slate-100 dark:bg-slate-950
   text-black dark:text-white">
-  <!-- Sidebar -->
-  <aside class="w-64
-    bg-white
-    dark:bg-slate-900 
-    border-r
-    border-slate-200 
-    dark:border-slate-800 
-    p-6 
-    hidden 
-    md:block">
+  
+  <!-- Desktop Sidebar -->
+  <aside class="hidden md:flex w-64 flex-col bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 p-6">
     <h1 class="text-2x1 font-bold mb-10 ">
       Study With Me
     </h1>
@@ -34,8 +27,39 @@
   </aside>
 
   <!-- Main Content -->
-  <main class="flex-1 p-6">
+  <main class="flex-1 p-3">
     <router-outlet></router-outlet>
   </main>
+
+  <!-- Mobile Bottom NAV -->
+  <nav class="fixed bottom-0 left-0 right-0
+    md:hidden
+    bg-white dark:bg-slate-900
+    border-t border-slate-800
+    flex justify-around items-center
+    py-3
+    z-50">
+    <a routerLink="" class="flex flex-col items-center text-sm">
+      <span>🏠</span>
+      <span>Home</span>
+    </a>
+    <a routerLink="/focus" class="flex flex-col items-center text-sm">
+      <span>⏳</span>
+      <span>Focus</span>
+    </a>
+    <a routerLink="/goals" class="flex flex-col items-center text-sm">
+      <span>🎯</span>
+      <span>Goals</span>
+    </a>
+    <a routerLink="/analytics" class="flex flex-col items-center text-sm">
+      <span>📊</span>
+      <span>Stats</span>
+    </a>
+    <a routerLink="/settings" class="flex flex-col items-center text-sm">
+      <span>⚙️</span>
+      <span>Setting</span>
+    </a>
+
+  </nav>
 
 </div> 

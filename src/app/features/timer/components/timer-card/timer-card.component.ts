@@ -1,6 +1,7 @@
 import { Component, computed, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TimerService } from '../../../../core/services/timer.service';
+import { SettingsService } from '../../../../core/services/settings.service';
 
 @Component({
   selector: 'app-timer-card',
@@ -11,6 +12,7 @@ import { TimerService } from '../../../../core/services/timer.service';
 export class TimerCardComponent {
 
   timerService = inject(TimerService);
+  // settingService = inject(SettingsService);
 
   radius = 120;
   circumference = 2 * Math.PI * this.radius;

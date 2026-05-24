@@ -33,10 +33,13 @@ export class TimerService {
       const focusDuration = this.settingsService.settings().focusDuration;
       const seconds = focusDuration * 60;
 
-      console.log('Updating Timer:',seconds);
-
       this.duration.set(seconds);
       this.remainingTime.set(seconds);
+
+      console.log('Timer Updated:',seconds);
+    },{
+      // Updates focus duration when changes from setting. 
+      allowSignalWrites: true 
     });
   }
 

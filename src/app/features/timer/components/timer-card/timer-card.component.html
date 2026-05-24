@@ -1,13 +1,19 @@
-<div class="bg-white dark:bg-slate-900/70 backdrop-blur-xl border border-slate-800 rounded-3xl p-10 shadow-2xl w-full max-w-lg">
+<div class="w-full max-w-md 
+  bg-white dark:bg-slate-900/70 backdrop-blur-xl 
+  border border-slate-800 dark:border-slate-800
+  rounded-3xl 
+  p-5 sm:p-4
+  shadow-xl  
+  flex flex-col items-center">
 
   <h2 class="text-3xl font-bold text-center mb-10">
     Deep Focus
   </h2>
 
   <!-- Circle Timer -->
-  <div class="relative flex justify-center items-center mb-10">
+  <div class="relative flex justify-center items-center mb-2">
 
-    <svg width="300" height="300">
+    <svg width="300" height="300" >
       <!-- Background -->
       <circle
         cx="150"
@@ -15,8 +21,7 @@
         [attr.r]="radius"
         stroke="#1e293b"
         stroke-width="14"
-        fill="transparent"
-      />
+        fill="transparent" />
       <!-- Progress -->
       <circle
         cx="150"
@@ -28,13 +33,13 @@
         stroke-linecap="round"
         [attr.stroke-dasharray]="circumference"
         [attr.stroke-dashoffset]="dashOffset()"
-        class="-rotate-90 origin-center"
-      />
-
+        class="-rotate-90 origin-center" /> 
+      
     </svg>
 
     <!-- Timer Text -->
-    <div class="absolute text-center">
+    <div class="absolute
+      text-center">
       <div class="text-6xl font-bold">
         {{ formattedTime() }}
       </div>
@@ -45,26 +50,31 @@
   </div>
 
   <!-- Buttons -->
-  <div class="flex justify-center gap-4 mb-8">
+  <div class="flex justify-center 
+    gap-4 
+    mt-8">
     <button
       (click)="timerService.startTimer()"
-      class="bg-green-500 px-6 py-3 rounded-xl font-semibold">
+      class="bg-green-500 border border-slate-800 px-6 py-3 rounded-xl font-semibold">
       Start
     </button>
     <button
       (click)="timerService.pauseTimer()"
-      class="bg-yellow-500 px-6 py-3 rounded-xl font-semibold">
+      class="bg-yellow-500 border border-slate-800 px-6 py-3 rounded-xl font-semibold">
       Pause
     </button>
     <button
       (click)="timerService.resetTimer()"
-      class="bg-red-500 px-6 py-3 rounded-xl font-semibold">
+      class="bg-red-500 border border-slate-800 px-6 py-3 rounded-xl font-semibold">
       Reset
     </button>
   </div>
 
   <!-- Presets -->
-  <div class="flex justify-center gap-3">
+  <div class="flex flex-wrap justify-center 
+    gap-3
+    mt-8
+    w-full">
     <button
       (click)="timerService.setTimer(25)"
       class="dark:bg-slate-800 px-4 py-2 rounded-xl   border border-slate-500">
