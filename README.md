@@ -1,27 +1,53 @@
-# StudyWithMe
+# Study With Me 🧠
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.21.
+A modern productivity dashboard built with Angular 18 to help students and developers stay focused, track study sessions, manage goals, and visualize productivity analytics.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## ✨ Features
 
-## Code scaffolding
+### ⏳ Focus Timer
+- Pomodoro timer
+- Start / Pause / Reset
+- Circular progress ring
+- Keyboard shortcuts
+- Fullscreen focus mode
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### 🎯 Goal Management
+- Add / Delete goals
+- Priority levels
+- LocalStorage persistence
+- Completion tracking
 
-## Build
+### 📊 Analytics Dashboard
+- Weekly focus trends
+- Productivity statistics
+- Session history
+- Total focus hours
+- Average session duration
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### ⚙️ Settings
+- Dark / Light mode
+- Focus duration preferences
+- Ambient sound controls
+- Persistent app settings
 
-## Running unit tests
+### 🔥 Streak Tracking
+- Daily streak system
+- Longest streak tracking
+- Productivity consistency
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🛠 Tech Stack
+- Angular 18
+- TypeScript
+- Angular Signals
+- Tailwind CSS
+- Chart.js
+- ng2-charts
+- LocalStorage API
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
